@@ -1,5 +1,28 @@
 <% if logged_in? %>
-  <p>ログイン完了ユーザ: <%= current_user.name %></p>
+  <div class="row">
+    <aside class="col-sm-4">
+      <%= form_with(model: @event) do |f| %>
+        <h1><%= event.location %></h1>
+
+        <p>Date: <%= event.date %></p>
+        <p>Start Time: <%= event.start_time %></p>
+        <p>End Time: <%= event.end_time %></p>
+
+        <p>Mens Price: ¥<%= event.mensprice %></p>
+        <p>Womens Price: ¥<%= event.womansprice %></p>
+
+        <p>Mens Max Participants: <%= event.mensmax_participants %></p>
+        <p>Womens Max Participants: <%= event.womansmax_participants %></p>
+
+        <p>Reservation Deadline: <%= event.deadline_time %></p>
+
+        <p>Memo: <%= event.memo %></p>
+      <% end %>
+    </aside>
+    <div class="col-sm-8">
+      <%= render 'events/events', events: @events %>
+    </div>
+  </div>
 <% else %>
   <div class="bg-secondary p-3 p-sm-5 my-4 rounded">
     <div class="text-center text-white">

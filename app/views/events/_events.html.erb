@@ -1,0 +1,24 @@
+<% if events.any? %>
+  <ul class="list-unstyled mt-2">
+    <% events.each do |event| %>
+      <h1><%= event.location %></h1>
+
+      <p>Date: <%= event.date %></p>
+      <p>Start Time: <%= event.start_time %></p>
+      <p>End Time: <%= event.end_time %></p>
+
+      <p>Mens Price: ¥<%= event.mensprice %></p>
+      <p>Womens Price: ¥<%= event.womansprice %></p>
+
+      <p>Mens Max Participants: <%= event.mensmax_participants %></p>
+      <p>Womens Max Participants: <%= event.womansmax_participants %></p>
+
+      <p>Reservation Deadline: <%= event.deadline_time %></p>
+
+      <p>Memo: <%= event.memo %></p>
+
+      <%= link_to "View Details", events_path %>
+    <% end %>
+  </ul>
+  <%== pagy_bootstrap_nav(@pagy) %>
+<% end %>

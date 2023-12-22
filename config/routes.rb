@@ -10,4 +10,6 @@ Rails.application.routes.draw do
   get 'signup', to: 'users#new'  # サインアップページを表示するためのGETリクエスト
   
   resources :users
+  
+  resources :events
 end

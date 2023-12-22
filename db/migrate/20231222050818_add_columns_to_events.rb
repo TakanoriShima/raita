@@ -1,17 +1,21 @@
-class AddColumnsToEvents < ActiveRecord::Migration[6.1]
+class CreateEvents < ActiveRecord::Migration[6.1]
   def change
-    add_column :events, :location, :string
-    add_column :events, :deadline_time, :datetime
-    add_column :events, :date, :date
-    add_column :events, :user_id, :integer
-    add_column :events, :start_time, :datetime
-    add_column :events, :end_time, :datetime
-    add_column :events, :mensmax_participants, :integer
-    add_column :events, :womansmax_participants, :integer
-    add_column :events, :mensprice, :integer
-    add_column :events, :womansprice, :integer
-    add_column :events, :memo, :text
+    create_table :events do |t|
+      t.string :location
+      t.datetime :deadline_time
+      t.date :date
+      t.integer :user_id
+      t.datetime :start_time
+      t.datetime :end_time
+      t.integer :mensmax_participants
+      t.integer :womansmax_participants
+      t.integer :mensprice
+      t.integer :womansprice
+      t.text :memo
 
-    add_reference :events, :user, null: false, foreign_key: true
+      t.timestamps
+    end
+
+    t.reference :events, :user, null: false, foreign_key: true
   end
 end
