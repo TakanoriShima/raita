@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     password = params[:session][:password]
     if login(email, password)
       flash[:success] = 'ログインに成功しました。'
-      redirect_to @user
+      redirect_to root_url # TpppagesController のindexアクションへ飛ぶ
     else
       flash.now[:danger] = 'ログインに失敗しました。'
       render :new
@@ -15,12 +15,8 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    session[:user_id] = nil
-    flash[:success] = 'ログアウトしました。'
-    redirect_to root_url
   end
-  
-  
+
   private
 
   def login(email, password)
@@ -35,5 +31,3 @@ class SessionsController < ApplicationController
     end
   end
 end
-
-

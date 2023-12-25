@@ -10,7 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_12_19_075459) do
+ActiveRecord::Schema.define(version: 2023_12_22_053837) do
+
+  create_table "events", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "location"
+    t.datetime "deadline_time"
+    t.date "date"
+    t.bigint "user_id", null: false
+    t.time "start_time"
+    t.time "end_time"
+    t.integer "mensmax_participants"
+    t.integer "womansmax_participants"
+    t.integer "mensprice"
+    t.integer "womansprice"
+    t.text "memo"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_events_on_user_id"
+  end
 
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
@@ -22,4 +39,5 @@ ActiveRecord::Schema.define(version: 2023_12_19_075459) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "events", "users"
 end

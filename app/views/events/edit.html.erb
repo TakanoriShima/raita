@@ -1,0 +1,59 @@
+
+<h1>Edit Event</h1>
+
+<%= form_with(model: @event, url: event_path(@event), method: :patch, local: true) do |form| %>
+  <div class="field">
+    <%= form.label :location %>
+    <%= form.text_field :location %>
+  </div>
+
+  <div class="field">
+    <%= form.label :date %>
+    <%= form.date_field :date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :start_time %>
+    <%= form.time_field :start_time %>
+  </div>
+
+  <div class="field">
+    <%= form.label :end_time %>
+    <%= form.time_field :end_time %>
+  </div>
+
+  <div class="field">
+    <%= form.label :mensprice %>
+    <%= form.number_field :mensprice %>
+  </div>
+
+  <div class="field">
+    <%= form.label :womansprice %>
+    <%= form.number_field :womansprice %>
+  </div>
+
+  <div class="field">
+    <%= form.label :mensmax_participants %>
+    <%= form.number_field :mensmax_participants %>
+  </div>
+
+  <div class="field">
+    <%= form.label :womansmax_participants %>
+    <%= form.number_field :womansmax_participants %>
+  </div>
+
+  <div class="field">
+    <%= form.label :deadline_time %>
+    <%= form.datetime_field :deadline_time %>
+  </div>
+
+  <div class="field">
+    <%= form.label :memo %>
+    <%= form.text_area :memo %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit 'Update Event' %>
+  </div>
+<% end %>
+

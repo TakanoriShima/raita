@@ -4,9 +4,9 @@ class CreateEvents < ActiveRecord::Migration[6.1]
       t.string :location
       t.datetime :deadline_time
       t.date :date
-      t.integer :user_id
-      t.datetime :start_time
-      t.datetime :end_time
+      t.references :user, null: false, foreign_key: true
+      t.time :start_time
+      t.time :end_time
       t.integer :mensmax_participants
       t.integer :womansmax_participants
       t.integer :mensprice
@@ -15,7 +15,5 @@ class CreateEvents < ActiveRecord::Migration[6.1]
 
       t.timestamps
     end
-
-    t.reference :events, :user, null: false, foreign_key: true
   end
 end

@@ -1,24 +1,16 @@
-<% if events.any? %>
-  <ul class="list-unstyled mt-2">
-      <h1><%= event.location %></h1>
+<p><strong>Location:</strong><%= @event.location %></p>
+<p><strong>Date:</strong> <%= @event.date %></p>
+<p><strong>Start Time:</strong> <%= @event.start_time %></p>
+<p><strong>End Time:</strong> <%= @event.end_time %></p>
+<p><strong>Mens Price:</strong> <%= @event.mensprice %></p>
+<p><strong>Womens Price:</strong> <%= @event.womansprice %></p>
+<p><strong>Mens Max Participants:</strong> <%= @event.mensmax_participants %></p>
+<p><strong>Womens Max Participants:</strong> <%= @event.womansmax_participants %></p>
+<p><strong>Deadline Time:</strong> <%= @event.deadline_time %></p>
+<p><strong>Memo:</strong> <%= @event.memo %></p>
 
-      <p>Date: <%= event.date %></p>
-      <p>Start Time: <%= event.start_time %></p>
-      <p>End Time: <%= event.end_time %></p>
-
-      <p>Mens Price: ¥<%= event.mensprice %></p>
-      <p>Womens Price: ¥<%= event.womansprice %></p>
-
-      <p>Mens Max Participants: <%= event.mensmax_participants %></p>
-      <p>Womens Max Participants: <%= event.womansmax_participants %></p>
-
-      <p>Reservation Deadline: <%= event.deadline_time %></p>
-
-      <p>Memo: <%= event.memo %></p>
-
-      <% if current_user == micropost.user %>
-         <%= button_to "Delete", event, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-sm' %>
-      <% end %>
-  </ul>
-  <%== pagy_bootstrap_nav(@pagy) %>
+<% if current_user == @event.user %>
+  <%= link_to 'Edit Event', edit_event_path(@event), class: 'btn btn-primary' %>
+  <%= link_to 'Delete Event', @event, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
 <% end %>
+

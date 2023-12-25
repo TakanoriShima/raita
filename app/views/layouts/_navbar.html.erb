@@ -10,9 +10,14 @@
         <% if logged_in? %>
     <div class="btn-group">
       <ul class="navbar-nav">
-        <li class="ms-3"><%= link_to 'Events', events_path, class: 'nav-link' %></li>
+        <li class="ms-3"><%= link_to 'Users', users_path, class: 'nav-link' %></li>
+        
       </ul>
       <button type="button" class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><%= current_user.name %></button>
+      <ul class="dropdown-menu dropdown-menu-end">
+        <li class="dropdown-item"><%= link_to 'toppage', root_url, class: 'nav-link' %></li>
+        <li class="dropdown-divider"></li>
+        <li class="dropdown-item"><%= link_to 'new event creste', new_event_path, class: 'nav-link' %></li>
         <li class="dropdown-divider"></li>
         <li class="dropdown-item"><%= link_to 'Logout', logout_path, method: :delete, class: 'nav-link' %></li>
       </ul>

@@ -1,0 +1,59 @@
+<% if logged_in? %>
+  <div class="row">
+    <aside class="col-sm-4">
+      <%= form_with(model: @event) do |f| %>
+        <div class="mb-3">
+          <%= f.label :location %>
+          <%= f.text_field :location, class: 'form-control' %>
+        </div>
+
+        <div class="mb-3">
+          <%= f.label :date %>
+          <%= f.date_field :date, class: 'form-control' %>
+        </div>
+
+        <div class="mb-3">
+          <%= f.label :start_time %>
+          <%= f.time_field :start_time, class: 'form-control' %>
+        </div>
+
+        <div class="mb-3">
+          <%= f.label :end_time %>
+          <%= f.time_field :end_time, class: 'form-control' %>
+        </div>
+
+        <div class="mb-3">
+          <%= f.label :mensprice %>
+          <%= f.number_field :mensprice, class: 'form-control' %>
+        </div>
+
+        <div class="mb-3">
+          <%= f.label :womansprice %>
+          <%= f.number_field :womansprice, class: 'form-control' %>
+        </div>
+
+        <div class="mb-3">
+          <%= f.label :mensmax_participants %>
+          <%= f.number_field :mensmax_participants, class: 'form-control' %>
+        </div>
+
+        <div class="mb-3">
+          <%= f.label :womansmax_participants %>
+          <%= f.number_field :womansmax_participants, class: 'form-control' %>
+        </div>
+
+        <div class="mb-3">
+          <%= f.label :deadline_time %>
+          <%= f.datetime_field :deadline_time, class: 'form-control' %>
+        </div>
+
+        <div class="mb-3">
+          <%= f.label :memo %>
+          <%= f.text_area :memo, class: 'form-control', rows: 5 %>
+        </div>
+
+        <%= f.submit 'Create Event', class: 'btn btn-primary w-100' %>
+      <% end %>
+    </aside>
+  </div>
+<% end %>

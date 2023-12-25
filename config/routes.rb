@@ -10,6 +10,12 @@ Rails.application.routes.draw do
   get 'signup', to: 'users#new'  # サインアップページを表示するためのGETリクエスト
   
   resources :users
-  
-  resources :events
+  resources :events do
+    member do
+      get 'show'
+      get 'edit'   # イベントの編集ページを表示するためのGETリクエスト
+      patch 'update' # イベントの更新処理を行うためのPATCHリクエスト
+      delete 'destroy' # イベントの削除処理を行うためのDELETEリクエスト
+    end
+  end
 end

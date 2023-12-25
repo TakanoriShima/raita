@@ -11,4 +11,6 @@ class User < ApplicationRecord
   validates :age, presence: true, numericality: { only_integer: true }, length: { maximum: 2 }
   
   has_secure_password
+  
+  has_many :events
 end
